@@ -18,18 +18,21 @@ export default defineNuxtConfig({
   },
   css: ["@/assets/global.scss"],
   runtimeConfig: {
-    baseURL: "/api/auth",
+    baseURL: process.env.API_URL || "http://localhost:3001",
   },
   auth: {
-    originEnvKey: "NUXT_BASE_URL",
+    baseURL: process.env.API_URL || "http://localhost:3001",
+    globalAppMiddleware: true,
     provider: {
       type: "local",
       endpoints: {
-        signIn: { path: "/login", method: "post" },
-        signOut: { path: "/logout", method: "post" },
-        signUp: { path: "/register", method: "post" },
-        getSession: { path: "/session", method: "get" },
+        signIn: { path: "/auth/login", method: "post" },
+        signOut: false,
+      },
+      token: {
+        type: "",
       },
     },
   },
+  ssr: false,
 });
