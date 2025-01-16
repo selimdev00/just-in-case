@@ -10,8 +10,19 @@
     "postinstall": "nuxt prepare"
   },
   "dependencies": {
+    "@nuxtjs/tailwindcss": "^6.13.1",
+    "@primevue/themes": "^4.2.5",
+    "@sidebase/nuxt-auth": "^0.10.0",
+    "next-auth": "~4.21.1",
     "nuxt": "^3.15.2",
+    "primeicons": "^7.0.0",
+    "primevue": "^4.2.5",
+    "tailwindcss-primeui": "^0.4.0",
     "vue": "latest",
     "vue-router": "latest"
+  },
+  "devDependencies": {
+    "@primevue/nuxt-module": "^4.2.5",
+    "sass": "^1.83.4"
   }
 }
