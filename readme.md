@@ -2,6 +2,12 @@
 
 Admin panel with backend 
 
+- 💪🏻 Built with Node.js, Express.js, Nuxt.js, TailwindCSS, PrimeVue and NuxtAuth
+- 🚀 Deployed with Docker
+- 📦 Managed with Docker Compose
+- 🔒 Secured with NuxtAuth
+- 🧪 Test with Jest and Playwright for E2E testing
+
 ## Tech
 
 - Node.js
@@ -25,6 +31,11 @@ Run server with `npm run dev` (http://localhost:3001)
 
 Run tests with `npm run test`
 
+## Tests
+
+Client tests are written with playwright, server tests are written with jest
+
+Client tests are valid if seeders are included in current database
 
 ## Docker 
 
