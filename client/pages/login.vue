@@ -10,6 +10,7 @@ const initialValues = ref({
   username: "",
   password: "",
 });
+const loading = ref(false);
 
 const resolver = ref(
   zodResolver(
@@ -22,18 +23,29 @@ const resolver = ref(
 
 const { signIn } = useAuth();
 
-const onFormSubmit = ({ valid }) => {
-  if (valid) {
+const onFormSubmit = async ({ valid, values }) => {
+  loading.value = true;
+
+  try {
+    if (valid) {
+      await signIn(values, {
+        callbackUrl: "/",
+      });
+
+      toast.add({
+        severity: "success",
+        summary: "Login successful",
+        life: 3000,
+      });
+    }
+  } catch (err) {
     toast.add({
-      severity: "success",
-      summary: "Form is submitted.",
+      severity: "error",
+      summary: err.message,
       life: 3000,
     });
-
-    signIn({
-      username: initialValues.value.username,
-      password: initialValues.value.password,
-    });
+  } finally {
+    loading.value = false;
   }
 };
 
@@ -77,7 +89,12 @@ definePageMeta({
           >{{ $form.password.error?.message }}</Message
         >
       </div>
-      <Button type="submit" severity="secondary" label="Submit" />
+      <Button
+        type="submit"
+        severity="secondary"
+        label="Submit"
+        :loading="loading"
+      />
     </Form>
   </div>
 </template>

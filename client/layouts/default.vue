@@ -1,7 +1,9 @@
 <template>
-  <div class="min-h-screen">
+  <div class="min-h-screen flex items-start">
     <LayoutSidebar />
 
-    <slot />
+    <main class="p-4 flex-1 w-full p-menu mt-4">
+      <slot />
+    </main>
   </div>
 </template>

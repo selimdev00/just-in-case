@@ -11,7 +11,7 @@ router.get("/dashboard", authenticate, authorize(["admin"]), (req, res) => {
 router.get("/users", authenticate, authorize(["admin"]), async (req, res) => {
   try {
     const users = await User.findAll({
-      attributes: ["id", "username", "role"],
+      attributes: ["id", "username", "role", "can_access"],
     });
     res.status(200).json(users);
   } catch (error) {

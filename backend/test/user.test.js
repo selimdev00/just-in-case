@@ -16,13 +16,13 @@ beforeAll(async () => {
   });
 
   // Get tokens
-  const adminResponse = await request(app).post("/auth/login").send({
+  const adminResponse = await request(app).post("/api/auth/login").send({
     username: admin.username,
     password: "adminpass",
   });
   adminToken = adminResponse.body.token;
 
-  const userResponse = await request(app).post("/auth/login").send({
+  const userResponse = await request(app).post("/api/auth/login").send({
     username: user.username,
     password: "userpass",
   });
@@ -32,7 +32,7 @@ beforeAll(async () => {
 describe("User Endpoints", () => {
   it("should allow a user to access their profile", async () => {
     const res = await request(app)
-      .get("/user/profile")
+      .get("/api/user/profile")
       .set("Authorization", userToken);
     expect(res.statusCode).toBe(200);
     expect(res.body.message).toContain("Welcome");
@@ -40,7 +40,7 @@ describe("User Endpoints", () => {
 
   it("should allow admin to access user profile", async () => {
     const res = await request(app)
-      .get("/user/profile")
+      .get("/api/user/profile")
       .set("Authorization", adminToken);
     expect(res.statusCode).toBe(200);
     expect(res.body.message).toContain("Welcome");

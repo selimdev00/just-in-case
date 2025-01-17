@@ -19,13 +19,13 @@ beforeAll(async () => {
   });
 
   // Get tokens
-  const adminResponse = await request(app).post("/auth/login").send({
+  const adminResponse = await request(app).post("/api/auth/login").send({
     username: admin.username,
     password: "adminpass",
   });
   adminToken = adminResponse.body.token;
 
-  const userResponse = await request(app).post("/auth/login").send({
+  const userResponse = await request(app).post("/api/auth/login").send({
     username: user.username,
     password: "userpass",
   });
@@ -38,7 +38,7 @@ afterAll(async () => {
 
 describe("Auth Endpoints", () => {
   it("should log in an existing user", async () => {
-    const res = await request(app).post("/auth/login").send({
+    const res = await request(app).post("/api/auth/login").send({
       username: "admin",
       password: "adminpass",
     });
@@ -47,7 +47,7 @@ describe("Auth Endpoints", () => {
   });
 
   it("should not log in with invalid credentials", async () => {
-    const res = await request(app).post("/auth/login").send({
+    const res = await request(app).post("/api/auth/login").send({
       username: "admin",
       password: "wrongpass",
     });

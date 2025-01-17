@@ -28,8 +28,11 @@ export default defineNuxtConfig({
       endpoints: {
         signIn: { path: "/auth/login", method: "post" },
         signOut: false,
+        getSession: { path: "/auth/session", method: "get" },
       },
       token: {
+        signInResponseTokenPointer: "/token",
+        maxAgeInSeconds: 60 * 60 * 24 * 7,
         type: "",
       },
     },
