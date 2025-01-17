@@ -27,6 +27,6 @@ services:
     ports:
       - "3001:3001"
     volumes:
-      - ./backend/database.sqlite:/app/database.sqlite
+      - ./backend:/app
     command: npm run dev
     restart: unless-stopped
