@@ -1,6 +1,8 @@
 <script setup lang="ts">
 const { data, signOut } = useAuth();
 
+const toast = useToast();
+
 const items = computed(() => {
   const res = [
     {
@@ -34,9 +36,15 @@ const items = computed(() => {
       {
         label: "Logout",
         icon: "pi pi-power-off",
-        command: () => {
-          signOut({
+        command: async () => {
+          await signOut({
             callbackUrl: "/login",
+          });
+
+          toast.add({
+            severity: "success",
+            summary: "Logout successful",
+            life: 3000,
           });
         },
       },

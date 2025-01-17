@@ -7,7 +7,11 @@
     "dev": "nuxt dev",
     "generate": "nuxt generate",
     "preview": "nuxt preview",
-    "postinstall": "nuxt prepare"
+    "postinstall": "nuxt prepare",
+    "e2e": "npx playwright test",
+    "e2e:ui": "npx playwright test --ui",
+    "e2e:report": "npx playwright test --reporter dot",
+    "e2e:web": "npx playwright show-report"
   },
   "dependencies": {
     "@nuxtjs/tailwindcss": "^6.13.1",
@@ -24,7 +28,10 @@
     "zod": "^3.24.1"
   },
   "devDependencies": {
+    "@playwright/test": "^1.49.1",
     "@primevue/nuxt-module": "^4.2.5",
+    "@types/node": "^22.10.7",
+    "playwright": "^1.49.1",
     "sass": "^1.83.4"
   }
 }
