@@ -2,7 +2,14 @@ import Aura from "@primevue/themes/aura";
 
 export default defineNuxtConfig({
   compatibilityDate: "2024-11-01",
-  devtools: { enabled: true },
+  devtools: { enabled: false },
+  app: {
+    head: {
+      title: "Just in case",
+      charset: "utf-8",
+      viewport: "width=device-width, initial-scale=1",
+    },
+  },
   modules: [
     "@primevue/nuxt-module",
     "@nuxtjs/tailwindcss",
@@ -25,6 +32,16 @@ export default defineNuxtConfig({
     globalAppMiddleware: true,
     provider: {
       type: "local",
+      session: {
+        dataType: {
+          user: {
+            id: "number",
+            username: "string",
+            role: "string",
+            can_access: "boolean",
+          },
+        },
+      },
       endpoints: {
         signIn: { path: "/auth/login", method: "post" },
         signOut: false,
