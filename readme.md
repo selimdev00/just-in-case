@@ -46,8 +46,8 @@ Run with docker (needs docker-compose): docker compose up -d --build
 
 If database does not exist yet backend run:
 - Run `npm install`
-- Run `npx sequelize-cli db:migrate`
-- Run `npx sequelize-cli db:seed:all`
+- Run `npm run migrate`
+- Run `npm run seed:all`
 
 ## Running locally
 
@@ -61,6 +61,6 @@ If database does not exist yet backend run:
 
 - Copy `.env.example` to `.env`
 - Run `npm install`
-- Run `npx sequelize-cli db:migrate`
-- Run `npx sequelize-cli db:seed:all`
+- Run `npm run migrate`
+- Run `npm run seed:all`
 - Run `npm run dev` (http://localhost:3001)
