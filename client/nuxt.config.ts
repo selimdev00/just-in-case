@@ -1,5 +1,7 @@
 import Aura from "@primevue/themes/aura";
 
+const baseURL = process.env.API_URL || "http://localhost:3002";
+
 export default defineNuxtConfig({
   compatibilityDate: "2024-11-01",
   devtools: { enabled: false },
@@ -25,10 +27,10 @@ export default defineNuxtConfig({
   },
   css: ["@/assets/global.scss"],
   runtimeConfig: {
-    baseURL: process.env.API_URL || "http://localhost:3001",
+    baseURL,
   },
   auth: {
-    baseURL: process.env.API_URL || "http://localhost:3001",
+    baseURL,
     globalAppMiddleware: true,
     provider: {
       type: "local",
