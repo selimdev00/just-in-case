@@ -1,5 +1,7 @@
 FROM node:20 AS builder
 
+ENV API_URL=http://localhost/api
+
 WORKDIR /app
 
 COPY package*.json ./
