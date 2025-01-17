@@ -41,24 +41,26 @@ Client tests are valid if seeders are included in current database
 
 Run with docker (needs docker-compose): docker compose up -d --build
 
-- client -> http://localhost (nginx)
-- backend -> http://localhost:3001 or http://localhost/api (nginx)
-
 If database does not exist yet backend run:
+- Go to backend `cd backend`
 - Run `npm install`
 - Run `npm run migrate`
 - Run `npm run seed:all`
 
+- client -> http://localhost (nginx)
+- backend -> http://localhost:3001 or http://localhost/api (nginx)
+
+
 ## Running locally
 
 ### Client
-
+- Go to client `cd client`
 - Copy `.env.example` to `.env` 
 - Run `npm install` 
 - Run`npm run dev` (http://localhost:3000)
 
 ### Backend
-
+- Go to backend `cd backend`
 - Copy `.env.example` to `.env`
 - Run `npm install`
 - Run `npm run migrate`
