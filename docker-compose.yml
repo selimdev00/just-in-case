@@ -27,6 +27,5 @@ services:
     ports:
       - "3001:3001"
     volumes:
-      - ./backend:/app
-    command: npm run dev
+      - /app/node_modules
     restart: unless-stopped
