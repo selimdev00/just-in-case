@@ -32,6 +32,6 @@ services:
       - "3001:3001"
     volumes:
       - /app/node_modules
-      - ./backend/config/database.sqlite:/app/config/database.sqlite
+      - ./backend/config:/app/config
     command: node server.js
     restart: unless-stopped
